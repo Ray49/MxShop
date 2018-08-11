@@ -52,7 +52,7 @@ class UserRegSerializer(serializers.ModelSerializer):
 
     # 输入密码的时候不显示明文
     password = serializers.CharField(
-        style={'input_type': 'password'}, label="密码", write_only=True
+        style={'input_type': 'password'}, label="密码", write_only=True,help_text="密码"
     )
 
     # 密码加密保存
@@ -87,3 +87,12 @@ class UserRegSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ("username","code","mobile","password")
+
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    """
+    用户详情
+    """
+    class Meta:
+        model = User
+        fields = ("name", "gender", "birthday", "email","mobile")

@@ -7,8 +7,8 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
     """
     自定义过滤类
     """
-    pricemin = django_filters.NumberFilter(field_name='shop_price', lookup_expr='gte')
-    pricemax = django_filters.NumberFilter(field_name='shop_price', lookup_expr='lte')
+    pricemin = django_filters.NumberFilter(field_name='shop_price', lookup_expr='gte',help_text="最低价格")
+    pricemax = django_filters.NumberFilter(field_name='shop_price', lookup_expr='lte',help_text="最高价格")
     # 行为: 名称中包含某字符，且字符不区分大小写
     # name = django_filters.CharFilter(name="name", lookup_expr="icontains")
     top_category = django_filters.NumberFilter(field_name='category',method='top_category_filter')
@@ -20,4 +20,4 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
 
     class Meta:
         model = Goods
-        fields = ['pricemin', 'pricemax', 'name']
+        fields = ['is_hot']
