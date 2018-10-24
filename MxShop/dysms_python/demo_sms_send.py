@@ -31,7 +31,7 @@ DOMAIN = "dysmsapi.aliyuncs.com"
 acs_client = AcsClient(const.ACCESS_KEY_ID, const.ACCESS_KEY_SECRET, REGION)
 region_provider.add_endpoint(PRODUCT_NAME, REGION, DOMAIN)
 
-def send_sms(business_id, phone_numbers,template_param=None,sign_name="祖磊",template_code="SMS_142085029"):
+def send_sms(business_id, phone_numbers,template_param=None,sign_name="",template_code="SMS_***"):
     smsRequest = SendSmsRequest.SendSmsRequest()
     # 申请的短信模板编码,必填
     smsRequest.set_TemplateCode(template_code)
